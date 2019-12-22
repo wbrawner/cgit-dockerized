@@ -2,14 +2,11 @@ FROM alpine:latest
 
 RUN apk add git apache2 openssh cgit py3-markdown py3-pygments
 
-COPY sshd_config /etc/ssh/sshd_config
+COPY sshd_config /sshd_config
 COPY httpd.conf /etc/apache2/httpd.conf
 COPY cgitrc /etc/cgitrc
 COPY entrypoint.sh /entrypoint.sh
 COPY update-mirrors.sh /update-mirrors.sh
-
-# Generate host keys for the server
-RUN ssh-keygen -A
 
 # Create directory for cgit config
 RUN mkdir -p /etc/cgit.d
