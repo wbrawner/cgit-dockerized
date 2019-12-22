@@ -15,9 +15,6 @@ RUN mkdir -p /etc/cgit.d
 # The password won't actually be used for anything, but needs to be set for
 # the system to consider the account valid.
 RUN adduser -Dh /git -s /usr/bin/git-shell git && \
-    mkdir -p /git/.ssh && \
-    chmod 700 /git/.ssh && \
-    chown -R 1000:1000 /git && \
     echo "git:\$(date +%s | sha256sum | base64 | head -c 64 ; echo)" | chpasswd
 
 # Add the cronjob to update the git mirrors once per hour
@@ -31,7 +28,7 @@ VOLUME /etc/cgit.d
 # Used to persist host SSH keys and configuration
 VOLUME /etc/ssh
 # Used to persist public SSH keys
-VOLUME /git/.ssh
+VOLUME /git
 # Used to persist git repositories
 VOLUME /pub/git
 
