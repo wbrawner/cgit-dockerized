@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+    cgit:
+        build: .
+        ports:
+            - "22:22"
+            - "80:80"
+        volumes:
+            - "./ssh-config:/git/.ssh"
+            - "./cgit-config:/etc/cgit.d"
+            - "./repos:/pub/git"
+

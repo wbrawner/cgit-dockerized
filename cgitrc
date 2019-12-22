@@ -1,0 +1,5 @@
+include=/etc/cgit.d/cgitrc
+virtual-path=/
+section-from-path=1
+scan-path=/pub/git
+
