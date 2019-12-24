@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add git apache2 openssh cgit py3-markdown py3-pygments curl
+RUN apk add git apache2 openssh cgit py3-markdown py3-pygments curl vim
 
 COPY sshd_config /sshd_config
 COPY httpd.conf /etc/apache2/httpd.conf
