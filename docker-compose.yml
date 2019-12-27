@@ -6,7 +6,8 @@ services:
             - "22:22"
             - "80:80"
         volumes:
-            - "./ssh-config:/git/.ssh"
             - "./cgit-config:/etc/cgit.d"
+            - "./ssh:/etc/ssh"
+            - "./git.home:/git"
             - "./repos:/pub/git"
 
